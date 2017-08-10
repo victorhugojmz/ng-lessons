@@ -23,11 +23,11 @@ export class Pokemon
 
 export class Cliente  
 {
-    id: number;
-    nombre: string;
-    rfc: string;
-    curp: any; 
-    email: string;
+    public id: number;
+    public nombre: string;
+    protected rfc: string;
+    protected curp: any; 
+    private email: string;
 
     constructor(id : number  , nombre : string, rfc: string , curp : any , email : string )
     {
@@ -38,13 +38,13 @@ export class Cliente
         this.email  =  email;
     }
 }
-var cliente = new Cliente(1,"Juan", "OK0110101", "BAVJ02022MMC010M110", "vhbj149601@gmail.com");
+var cliente = new Cliente(1,"Juan", "OK0110101", "BAVJ02022MMC010M110", "vhbj14665659601@gmail.com");
 
 export class Empleado 
 {
-    id: number;
-    nombre: string;
-    sueldo: number;
+   public id: number;
+   public nombre: string;
+   protected sueldo: number;
     constructor(id: number , nombre: string , sueldo: number )
     {
         this.id =  id;
@@ -76,7 +76,7 @@ export class Empleado
 }
 class Gerente extends Empleado 
 {
-    departamento: string;    
+    public departamento: string;    
     constructor(id: number , nombre: string , sueldo: number, departamento: string)
     {
         super(id, nombre, sueldo);

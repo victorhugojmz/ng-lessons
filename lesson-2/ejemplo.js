@@ -37,7 +37,7 @@ var Cliente = (function () {
     return Cliente;
 }());
 exports.Cliente = Cliente;
-var cliente = new Cliente(1, "Juan", "OK0110101", "BAVJ02022MMC010M110", "vhbj149601@gmail.com");
+var cliente = new Cliente(1, "Juan", "OK0110101", "BAVJ02022MMC010M110", "vhbj14665659601@gmail.com");
 var Empleado = (function () {
     function Empleado(id, nombre, sueldo) {
         this.id = id;
