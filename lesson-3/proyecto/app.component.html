@@ -1,0 +1,49 @@
+<h1>Listas</h1>
+    <form action="">
+        <div class="form-group">
+            <label for="">Busqueda</label>
+            <input value="term" name="term" [(ngModel)]="term" type="text" class="form-control">
+            {{ term }}
+        </div>
+    </form>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th><i class="fa fa-user fa-2x" aria-hidden="true"></i> Avatar</th>
+                <th><i class="fa fa-user fa-2x" aria-hidden="true"></i> Nombre</th>
+                <th><i class="fa fa-phone fa-2x" aria-hidden="true"></i> Telefono</th>
+                <th><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> Ciudad</th>
+                <th><i class="fa fa-home fa-2x" aria-hidden="true"></i>CP</th>
+                <th><i class="fa fa-money fa-2x" aria-hidden="true"></i>Compras</th>
+                <th><i class="fa fa-cog fa-2x" aria-hidden="true"></i> ACCIONES</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of clientes | filter:term | sort:'DESC'">
+                <td>
+                    <img 
+                        style="width: 100px; height:100px;" 
+                        [src]="cliente.avatar" 
+                        alt="{{ cliente.nombre }}">
+                </td>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.telefono }}</td>
+                <td>{{ cliente.ciudad }}</td>
+                <td>{{ cliente.cp }}</td>   
+                <td>
+                    <div *ngIf="cliente.compras; else noCompras">
+                            <ul>
+                                <li *ngFor="let compras of cliente.compras"> 
+                                    {{ compras }}
+                                </li>
+                            </ul>
+                    </div>
+                    <ng-template #noCompras> No hay compras </ng-template>    
+                </td> 
+                <td>
+                    <button class="btn btn-info" (click)="info(cliente)"> DETALLES </button>
+                    <button class="btn btn-danger" (click)="eliminar(cliente)"> ELIMINAR </button>        
+                </td>
+            </tr>
+        </tbody>
+    </table>
