@@ -47,3 +47,60 @@
             </tr>
         </tbody>
     </table>
+
+     <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <ul>
+                <li *ngFor="let numero of numeros; let i = index; let par = even">
+                  <strong>{{ i + 1 }}</strong> - {{ numero }}  es par:  {{ par }}
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+             <ul>
+                <li *ngFor="let cadena of cadenas; let i = index; let impar = odd">
+                    {{ i + 1 }} - <strong>{{ cadena }}</strong> es impar:  {{ impar }}
+                </li> 
+            </ul>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+             <ul>
+                <li *ngFor="let distinto of distintos; let i = index; let fst = first">
+                    {{ i + 1 }} - <strong>{{ distinto }}</strong> --- es el primero? {{ fst }}
+                </li> 
+            </ul>
+        </div>
+    </div>
+    <ul class="nav nav-tabs">
+        <li><a (click)="opcion = 1"> FAMILIA </a></li>
+        <li><a (click)="opcion = 2"> AMIGOS</a></li>
+    </ul>
+    <div class="row" [ngSwitch]="opcion">
+        <div class="col-sm-6" *ngSwitchCase="1">
+             <ul>
+                <li *ngFor="let _familia of familia; let i = index">
+                    {{ i + 1 }} - <strong>{{ _familia }}</strong>
+                </li> 
+            </ul>
+        </div>
+        <div class="col-sm-6" *ngSwitchCase="2">
+             <ul>
+                <li *ngFor="let amigo of amigos; let i = index">
+                    {{ i + 1 }} - <strong>{{ amigo }}</strong>
+                </li> 
+            </ul>
+        </div>
+        <div *ngSwitchDefault> DEFAULT</div>
+    </div>
+     <div [ngStyle]="{ 'color': 'black','background-color': fondo, 'width.px': 500, 'padding.em': 3}">
+        <h1 [ngStyle]="{ 'font-size': tamFuente }">
+            Typescript
+        </h1>
+    </div>
+    <h2>Marcar Como Favorito</h2>
+        <span>
+            <i class="glyphicon glyphicon-star"
+               [ngStyle]= "estilosFav"
+               (click)= "marcaFavorito()"         
+                ></i>
+        </span>

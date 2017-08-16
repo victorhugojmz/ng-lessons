@@ -10,10 +10,9 @@ import { Input, Output } from '@angular/core';
   inputs: [ ]
 })
 export class TestComponent implements OnInit {
-  @Input() public  value: number;
+  @Input('') public  value: number;
   constructor() { }
-
   ngOnInit() {
-  }
-  
+
+    }
 }
